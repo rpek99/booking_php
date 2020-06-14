@@ -16,15 +16,6 @@ $(document).ready(function(e) {
         }
     });
 
-    $.ajax({
-        data: data,
-        type: "post",
-        url: "backend/get_bookings.php",
-        success: function(dataResult){
-            var bookings = JSON.parse(dataResult);
-            console.log(bookings);
-        }
-    });
 }); 
  
 $(document).on('click','.update',function(e) {

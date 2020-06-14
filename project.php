@@ -1,6 +1,8 @@
 <?php
 include 'backend/database.php';
 
+$images_dirname = "images/";
+
 $previous_booked_rooms = array();
 $upcoming_booked_rooms = array();
 
@@ -119,9 +121,8 @@ include 'backend/get_bookings.php';
 
                 foreach ($upcoming_booked_rooms as $booked_room){
 
-
-
-                    echo '<img class="pctborder" src="https://alkazar.com.tr/wp-content/uploads/ic-ortam-hava-kalitesi-0.png" width="250px" height="160px">';
+                    $image = glob($images_dirname.$booked_room['image']);
+                    echo '<img class="pctborder" src="'.$image[0].'" width="250px" height="160px"/>';
 
                     echo '<div class="paragraph">';
 
@@ -154,9 +155,11 @@ include 'backend/get_bookings.php';
 
                 foreach ($previous_booked_rooms as $booked_room){
 
+                    $image = glob($images_dirname."/".$booked_room['image']);
+                    echo '<img class="pctborder" src="'.$image[0].'" width="250px" height="160px"/>';
 
 
-                echo '<img class="pctborder" src="https://alkazar.com.tr/wp-content/uploads/ic-ortam-hava-kalitesi-0.png" width="250px" height="160px">';
+                //echo '<img class="pctborder" src="https://alkazar.com.tr/wp-content/uploads/ic-ortam-hava-kalitesi-0.png" width="250px" height="160px">';
 
                 echo '<div class="paragraph">';
 
@@ -177,7 +180,7 @@ include 'backend/get_bookings.php';
   }
 
                 ?>
-                <textarea style="margin-left: -180px;" class="txtarea" rows="2" cols="70" name="comment" form="usrform"> Comment...</textarea>
+               <!-- <textarea style="margin-left: -180px;" class="txtarea" rows="2" cols="70" name="comment" form="usrform"> Comment...</textarea> -->
                      
             </div>
             <br>
